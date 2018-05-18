@@ -15,20 +15,11 @@ app.use(bodyParser.json());
 
 app.use("/api", apiRouter);
 
-// SET UP QUERY - WORKED
-const personName = "Sean";
-const resultPromise = session.run("CREATE (a:Person {name: $name}) RETURN a", {
-  name: personName
+// Error Handling
+app.use((err, req, res, next) => {
+  if (err) {
+    res.status(500).send({ msg: "development - only error handle" });
+  }
 });
-
-resultPromise
-  .then(result => {
-    session.close();
-    const singleRecord = result.records[0];
-    const node = singleRecord.get(0);
-    console.log(node.properties.name);
-    driver.close();
-  })
-  .catch(console.log);
 
 module.exports = app;
