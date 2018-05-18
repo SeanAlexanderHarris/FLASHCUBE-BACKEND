@@ -7,3 +7,5 @@ const router = require("express").Router();
 // get one term
 
 // get terms a user is stuyding
+
+module.exports = router;

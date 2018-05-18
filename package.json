@@ -14,11 +14,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "*",
     "body-parser": "*",
     "ejs": "*",
+    "express": "*",
     "morgan": "*",
     "neo4j-driver": "*",
-    "nodemon": "*"
+    "nodemon": "*",
+    "npm": "^6.0.1"
   }
 }

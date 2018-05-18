@@ -9,3 +9,5 @@ router.get("/", getAllTopics);
 router.get("/:title", getTopic);
 
 // get topics a user is stuyding
+
+module.exports = router;

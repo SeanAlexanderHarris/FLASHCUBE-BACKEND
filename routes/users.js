@@ -7,3 +7,5 @@ router.get("/", getAllUsers);
 
 // get one user
 router.get("/:_id", getUser);
+
+module.exports = router;

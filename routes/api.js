@@ -21,11 +21,11 @@ router.get("/", (req, res) => {
   res.sendFile(__dirname.replace("routes", "") + "index.html");
 });
 
-router.use("/users", usersRouter);
+// router.use("/users", usersRouter);
 
-router.use("/topics", topicsRouter);
+// router.use("/topics", topicsRouter);
 
-router.use("/terms", termsRouter);
+// router.use("/terms", termsRouter);
 
 router.use("/*", (req, res, next) => {
   next({ status: 404 });
