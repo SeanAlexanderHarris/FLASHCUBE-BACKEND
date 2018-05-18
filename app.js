@@ -5,7 +5,8 @@ const neo4j = require("neo4j-driver").v1;
 const {
   GRAPHENEDB_BOLT_PASSWORD,
   GRAPHENEDB_BOLT_URL,
-  GRAPHENEDB_BOLT_USER
+  GRAPHENEDB_BOLT_USER,
+  DB_URL
 } = require("./config/");
 const driver = neo4j.driver(
   GRAPHENEDB_BOLT_URL,

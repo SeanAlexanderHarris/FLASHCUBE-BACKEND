@@ -1,5 +1,5 @@
 {
-  "name": "FlashCube",
+  "name": "flashcube",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon listen.js",
     "seed:dev": "node seed/seed.js",
-    "setter": "node driverNotes.js",
     "start": "node listen.js"
   },
   "keywords": [],
