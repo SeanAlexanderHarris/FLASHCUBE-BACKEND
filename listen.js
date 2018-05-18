@@ -1,4 +1,6 @@
 const app = require("./app.js");
 
-app.listen(3000);
-console.log("Server listening on Port 3000");
+app.listen(process.env.PORT || 3000, err => {
+  if (err) throw err;
+  console.log(`Server listening on port 3000`);
+});

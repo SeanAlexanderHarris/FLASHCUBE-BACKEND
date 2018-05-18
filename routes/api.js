@@ -2,12 +2,6 @@ const router = require("express").Router();
 const topicsRouter = require("./topics");
 const termsRouter = require("./terms");
 const usersRouter = require("./users");
-const neo4j = require("neo4j-driver").v1;
-const driver = neo4j.driver(
-  "bolt://localhost",
-  neo4j.auth.basic("neo4j", "flashcube")
-);
-const session = driver.session();
 
 // on home, just send a single term
 // router.get("/", function(req, res) {
