@@ -1,7 +1,7 @@
 const neo4j = require("neo4j-driver").v1;
-const termData = require("./devData/terms");
-const topicData = require("./devData/topics");
-const userData = require("./devData/users");
+// const termData = require("./devData/terms");
+// const topicData = require("./devData/topics");
+// const userData = require("./devData/users");
 const driver = neo4j.driver(
   "bolt://localhost",
   neo4j.auth.basic("neo4j", "flashcube")
@@ -20,4 +20,4 @@ function seedDB() {
     .catch(err => console.log);
 }
 
-seedDB(termData, topicData, userData).catch(console.log);
+seedDB().catch(console.log);
