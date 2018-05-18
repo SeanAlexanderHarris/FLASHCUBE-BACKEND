@@ -6,10 +6,10 @@ const {
   GRAPHENEDB_BOLT_PASSWORD,
   GRAPHENEDB_BOLT_URL,
   GRAPHENEDB_BOLT_USER,
-  DB_URL
+  GRAPHENEDB_URL
 } = require("./config/");
 const driver = neo4j.driver(
-  GRAPHENEDB_BOLT_URL,
+  GRAPHENEDB_URL,
   neo4j.auth.basic(GRAPHENEDB_BOLT_USER, GRAPHENEDB_BOLT_PASSWORD)
 );
 const app = express();
