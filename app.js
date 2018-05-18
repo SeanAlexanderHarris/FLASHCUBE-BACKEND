@@ -13,10 +13,11 @@ const driver = neo4j.driver(
   neo4j.auth.basic(GRAPHENEDB_BOLT_USER, GRAPHENEDB_BOLT_PASSWORD)
 );
 const app = express();
+consolelog("1");
 const session = driver.session();
-
+consolelog("2");
 app.use(bodyParser.json());
-
+consolelog("3");
 app.use("/api", apiRouter);
 
 // Error Handling
