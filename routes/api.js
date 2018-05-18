@@ -5,6 +5,8 @@ const driver = neo4j.driver(
   neo4j.auth.basic("neo4j", "flashcube")
 );
 
+// CHANGE
+
 // on home, just send a single term
 router.get("/", function(req, res) {
   session
