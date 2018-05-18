@@ -1,19 +1,20 @@
 const router = require("express").Router();
+const neo4j = require("neo4j-driver").v1;
+const driver = neo4j.driver(
+  "bolt://localhost",
+  neo4j.auth.basic("neo4j", "flashcube")
+);
 
-router.get("/", (req, res) => {
-  res.sendFile(__dirname.replace("routes", "") + "index.html");
-});
-
-// default query for now on slash path - just log some topics
-app.get("/", function(req, res) {
+// on home, just send a single term
+router.get("/", function(req, res) {
   session
-    .run("MATCH(topic:Topic) RETURN topic LIMIT 25")
+    .run("MATCH(term:Term) RETURN term LIMIT 1")
     .then(result => {
-      result.records.forEach(record => console.log(movie));
+      console.log(result);
+      res.send({ result });
     })
     .catch(err => console.log);
-
-  res.send("ENTER THE FLASHCUBE");
+  // res.send("it works");
 });
 
 router.use("/*", (req, res, next) => {

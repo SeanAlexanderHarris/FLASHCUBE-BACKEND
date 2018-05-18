@@ -46,11 +46,6 @@
     "belongs_to": "Made in Chelsea"
   },
   {
-    "term": "insert term here",
-    "definition": "insert definition here",
-    "belongs_to": "Made in Chelsea"
-  },
-  {
     "term": "Name the three judges who have appeared on the show.",
     "definition": "Mary Berry, Prue Leith, Paul Hollywood",
     "belongs_to": "The Great British Bake Off"
