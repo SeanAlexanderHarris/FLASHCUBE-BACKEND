@@ -1,15 +1,18 @@
 const express = require("express");
 const apiRouter = require("./routes/api");
 const bodyParser = require("body-parser");
-// not sure if the neo4j driver needs to be at this level
 const neo4j = require("neo4j-driver").v1;
+const {
+  GRAPHENEDB_BOLT_PASSWORD,
+  GRAPHENEDB_BOLT_URL,
+  GRAPHENEDB_BOLT_USER
+} = require("./config/");
 const driver = neo4j.driver(
-  "bolt://localhost",
-  neo4j.auth.basic("neo4j", "flashcube")
+  GRAPHENEDB_BOLT_URL,
+  neo4j.auth.basic(GRAPHENEDB_BOLT_USER, GRAPHENEDB_BOLT_PASSWORD)
 );
-
 const app = express();
-const session = driver.session();
+// const session = driver.session();
 
 console.log("APP.JS CALLED");
 
