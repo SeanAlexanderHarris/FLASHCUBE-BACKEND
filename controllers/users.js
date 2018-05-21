@@ -35,7 +35,7 @@ exports.getAllUsers = (req, res, next) => {
 exports.getUser = (req, res, next) => {
   const session = driver.session();
   const getUserPromise = session.run(
-    "MATCH (user:User{uid:$uid})-[rel:IS_STUDYING|CREATED_BY]-(topic:Topic) RETURN user, rel.type, topic",
+    "MATCH (user:User{uid:$uid})-[rel:IS_STUDYING|CREATED_BY]-(topic:Topic) RETURN DISTINCT user, rel.type, topic",
     {
       uid: req.params.uid
     }
