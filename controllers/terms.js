@@ -36,7 +36,7 @@ exports.getAllTerms = (req, res, next) => {
 exports.getTermsByTopic = (req, res, next) => {
   const session = driver.session();
   const getTermsByTopicPromise = session.run(
-    "MATCH (term:Term)-[:BELONGS_TO]->(topic:Topic{title:$topicTitle}) RETURN allTerms",
+    "MATCH (term:Term)-[:BELONGS_TO]->(topic:Topic{title:$topicTitle}) RETURN term",
     {
       topicTitle: req.params.topicTitle
     }
