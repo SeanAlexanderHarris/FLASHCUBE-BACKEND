@@ -21,7 +21,7 @@ const driver = neo4j.driver(
 // = driver.session();
 
 exports.getAllUsers = (req, res, next) => {
-  // const session = driver.session();
+  const session = driver.session();
   const getAllUsersPromise = session.run(
     "MATCH (user:User) RETURN user AS AllUsers",
     {}
