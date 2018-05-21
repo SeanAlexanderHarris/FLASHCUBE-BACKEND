@@ -3,7 +3,7 @@ const topicsRouter = require("./topics");
 const termsRouter = require("./terms");
 const usersRouter = require("./users");
 
-console.log("4");
+console.log("api hit");
 
 // router.get("/", function(req, res) {
 //   session

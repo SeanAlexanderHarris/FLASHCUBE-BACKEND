@@ -7,17 +7,15 @@ const {
   GRAPHENEDB_BOLT_URL,
   GRAPHENEDB_BOLT_USER,
   GRAPHENEDB_URL
-} = require("./config/");
+} = process.env.GRAPHENEDB_URL ? process.env : require("./config/");
+
 const driver = neo4j.driver(
   GRAPHENEDB_BOLT_URL,
   neo4j.auth.basic(GRAPHENEDB_BOLT_USER, GRAPHENEDB_BOLT_PASSWORD)
 );
 const app = express();
-console.log("1");
 const session = driver.session();
-console.log("2");
 app.use(bodyParser.json());
-console.log("3");
 app.use("/api", apiRouter);
 
 // Error Handling
