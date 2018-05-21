@@ -1,6 +1,10 @@
 const router = require("express").Router();
 
-const { getAllTopics, getTopic } = require("../controllers/topics");
+const {
+  getAllTopics,
+  getTopic,
+  getUserTopics
+} = require("../controllers/topics");
 
 // get all topics
 router.get("/", getAllTopics);
@@ -9,7 +13,8 @@ router.get("/", getAllTopics);
 router.get("/:title", getTopic);
 
 // get topics a user is studying
+router.get(":uid/topics", getUserTopics);
 
-// add an IS_STUDYING rel between user and topic
+// add an IS_STUDYING relationship between user and topic
 
 module.exports = router;

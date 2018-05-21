@@ -35,9 +35,29 @@ exports.getAllUsers = (req, res, next) => {
 exports.getUser = (req, res, next) => {
   const session = driver.session();
   const getUserPromise = session.run(
-    "MATCH (user:User{firebaseId:$firebaseId}) RETURN user",
+    "MATCH (user:User{uid:$uid}) MATCH(topic:Topic) RETURN user, topic",
     {
-      firebaseId: req.params.id
+      uid: req.params.id
+    }
+  );
+  getUserPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};
+
+exports.addUser = (req, res, next) => {
+  const session = driver.session();
+  const getUserPromise = session.run(
+    "CREATE (user:User{uid:$uid, name:$name, photoURL:$photoURL}) RETURN user",
+    {
+      uid: req.body.uid,
+      name: req.body.displayName,
+      photoURL: req.body.photoURL
     }
   );
   getUserPromise

@@ -37,7 +37,25 @@ exports.getTopic = (req, res, next) => {
   const getTopicPromise = session.run(
     "MATCH (topic:Topic{title:$title}) RETURN topic",
     {
-      firebaseId: req.params.title
+      title: req.params.title
+    }
+  );
+  getTopicPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};
+
+exports.getUserTopics = (req, res, next) => {
+  const session = driver.session();
+  const getTopicPromise = session.run(
+    "MATCH (user:User{uid:$uid}-[:IS_STUDYING]->(topic:Topic) RETURN user, topic",
+    {
+      uid: req.params.uid
     }
   );
   getTopicPromise

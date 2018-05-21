@@ -15,6 +15,8 @@ const driver = neo4j.driver(
 );
 const app = express();
 const session = driver.session();
+const cors = require("cors");
+app.use(cors());
 app.use(bodyParser.json());
 app.use("/api", apiRouter);
 
