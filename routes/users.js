@@ -5,7 +5,7 @@ const { getAllUsers, getUser, addUser } = require("../controllers/users");
 // get all users
 router.get("/", getAllUsers);
 
-// get a user and all topics
+// get a single user
 router.get("/:uid", getUser);
 
 // add a user
