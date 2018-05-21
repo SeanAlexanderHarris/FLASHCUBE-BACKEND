@@ -306,3 +306,11 @@ CREATE
     (Glory)-[:BELONGS_TO]->(BuffyTheVampireSlayerCharacters),
     (Drusilla)-[:BELONGS_TO]->(BuffyTheVampireSlayerCharacters),
     (EvilWillow)-[:BELONGS_TO]->(BuffyTheVampireSlayerCharacters)
+
+CREATE
+    (DanSoup)-[:IS_STUDYING]->(Dawn),
+    (DanSoup)-[:IS_STUDYING]->(EvilWillow),
+    (DanSoup)-[:IS_STUDYING]->(Anya),
+    (DanSoup)-[:IS_STUDYING]->(MindFlayer),
+    (DanSoup)-[:IS_STUDYING]->(HawkinsIndiana),
+    (DanSoup)-[:IS_STUDYING]->(BaseballBat)

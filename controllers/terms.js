@@ -50,3 +50,21 @@ exports.getTermsByTopic = (req, res, next) => {
     })
     .catch(next);
 };
+
+exports.getUserTerms = (req, res, next) => {
+  const session = driver.session();
+  const getUserTermsPromise = session.run(
+    "MATCH (user:User{uid:$uid})-[:IS_STUDYING]->(term:Term) RETURN term",
+    {
+      uid: req.params.uid
+    }
+  );
+  getUserTermsPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};
