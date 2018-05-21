@@ -5059,6 +5059,26 @@
     <code>/api/users</code>
   </h3>
   <p>Returns all users</p>
+  <h3>
+    <a></a>GET
+    <code>/api/users/:uid</code>
+  </h3>
+  <p>Returns a single user (using the unique firebase id on the user node added during registration)</p>
+  <h3>
+    <a></a>GET
+    <code>/api/topics/:title</code>
+  </h3>
+  <p>Returns a topic (referenced by the topic title property).</p>
+  <h3>
+    <a></a>GET
+    <code>/api/topics//:uid/topics</code>
+  </h3>
+  <p>Returns topics with a :IS_STUDYING relationship to a user</p>
+  <h3>
+    <a></a>GET
+    <code>/api/terms/:topicTitle/topicterms</code>
+  </h3>
+  <p>Returns all terms with a :BELONGS_TO relationship to a topic.</p>
 </body>
 
 </html>
