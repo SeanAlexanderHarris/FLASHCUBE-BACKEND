@@ -4,11 +4,12 @@ const neo4j = require("neo4j-driver").v1;
 //   "bolt://localhost",
 //   neo4j.auth.basic("neo4j", "flashcube")
 // );
-const { driver } = require("../app");
-const session = driver.session();
+// const { driver } = require("../app");
+const { session } = require("../app");
+// = driver.session();
 
 exports.getAllUsers = (req, res, next) => {
-  const session = driver.session();
+  // const session = driver.session();
   const getAllUsersPromise = session.run(
     "MATCH (user:User) RETURN user AS AllUsers",
     {}
