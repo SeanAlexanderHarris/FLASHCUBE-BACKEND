@@ -17,11 +17,11 @@ const driver = neo4j.driver(
   neo4j.auth.basic(GRAPHENEDB_BOLT_USER, GRAPHENEDB_BOLT_PASSWORD)
 );
 
-// const { session } = require("../app");
+const { session } = require("../app");
 // = driver.session();
 
 exports.getAllUsers = (req, res, next) => {
-  const session = driver.session();
+  // const session = driver.session();
   const getAllUsersPromise = session.run(
     "MATCH (user:User) RETURN user AS AllUsers",
     {}
