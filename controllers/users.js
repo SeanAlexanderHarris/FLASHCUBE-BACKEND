@@ -1,9 +1,10 @@
 const express = require("express");
 const neo4j = require("neo4j-driver").v1;
-const driver = neo4j.driver(
-  "bolt://localhost",
-  neo4j.auth.basic("neo4j", "flashcube")
-);
+// const driver = neo4j.driver(
+//   "bolt://localhost",
+//   neo4j.auth.basic("neo4j", "flashcube")
+// );
+const { driver } = require("../app");
 const session = driver.session();
 
 exports.getAllUsers = (req, res, next) => {
