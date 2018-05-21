@@ -68,3 +68,40 @@ exports.getUserTerms = (req, res, next) => {
     })
     .catch(next);
 };
+
+exports.addUserStudyingTerm = (req, res, next) => {
+  const session = driver.session();
+  const addUserStudyingTermPromise = session.run(
+    "MERGE (user:User{uid:$uid}-[rel:IS_STUDYING{type:'isStudying'}]->(term:Term{definition:$termDefinition}) RETURN user, rel, term",
+    {
+      uid: req.params.uid,
+      termDefinition: req.params.termDefinition
+    }
+  );
+  addUserStudyingTermPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};
+
+exports.getOneTerm = (req, res, next) => {
+  const session = driver.session();
+  const getOneTermPromise = session.run(
+    "MATCH (term:Term{termDefinition:$termDefinition}) RETURN term",
+    {
+      termDefinition: req.params.termDefinition
+    }
+  );
+  getOneTermPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};

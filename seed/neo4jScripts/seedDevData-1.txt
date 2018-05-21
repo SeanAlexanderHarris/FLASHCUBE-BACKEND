@@ -229,63 +229,63 @@ CREATE
 
 CREATE (Buffy:Term{term:'The slayer who lives in Sunnydale',
     definition:'Buffy',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Xander:Term{term:'The joker who keeps accidentally dating monsters',
     definition:'Xander',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Willow:Term{term:'The clever nerdy one',
     definition:'Willow',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Giles:Term{term:'The watcher and librarian of Sunnydale High',
     definition:'Giles',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Oz:Term{term:'Plays in a band called: Dingos Ate My Baby',
     definition:'Oz',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Cordelia:Term{term:'The mean girl and queen bee',
     definition:'Cordelia',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Angel:Term{term:'A vampire cursed by gypsies with a soul',
     definition:'Angel',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Joy:Term{term:'The mother of the slayer',
     definition:'Joy',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Dawn:Term{term:'The slayers sister - very annoying',
     definition:'Dawn',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Tara:Term{term:'Wicca woman who falls in love with a nerdy girl at SU',
     definition:'Tara',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Spike:Term{term:'Horrible vampire - British accent',
     definition:'Spike',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Anya:Term{term:'Ex demon who is obsessed with money',
     definition:'Anya',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Mayor:Term{term:'Politician / evil demon',
     definition:'The Mayor',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Master:Term{term:'Very ugly boss vampire who lives in the sewer',
     definition:'The Master',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (First:Term{term:'The weird meta baddy of the first evil thought',
     definition:'The First',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Adam:Term{term:'Cyborg made by the initiative',
     definition:'Adam',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Glory:Term{term:'Self obsessed god who brain sucks people and leaves them crazy',
     definition:
     'Glory',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (Drusilla:Term{term:'Kooky female vampire who has a weird triangle thing with Spike and Angel',
     definition:
     'Drusilla',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE (EvilWillow:Term{term:'Dark side of the nice nerdy girl when her GF dies',
     definition:'Evil Willow',
-    belongs_to:'Buffy the Vampire Slayer Characters'})
+    belongs_to:'Buffy The Vampire Slayer Characters'})
 CREATE
     (Buffy)-[:BELONGS_TO]->(BuffyTheVampireSlayerCharacters),
     (Xander)-[:BELONGS_TO]->(BuffyTheVampireSlayerCharacters),

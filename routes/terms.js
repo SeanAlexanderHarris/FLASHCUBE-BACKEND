@@ -3,13 +3,16 @@ const router = require("express").Router();
 const {
   getAllTerms,
   getTermsByTopic,
-  getUserTerms
+  getUserTerms,
+  addUserStudyingTerm,
+  getOneTerm
 } = require("../controllers/terms");
 
 // get all terms
 router.get("/", getAllTerms);
 
 // get one term
+router.get("/:termDefinition", getOneTerm);
 
 // get terms a user is studying
 router.get("/:uid/terms", getUserTerms);
@@ -18,6 +21,6 @@ router.get("/:uid/terms", getUserTerms);
 router.get("/:topicTitle/topicterms", getTermsByTopic);
 
 // add an IS_STUDYING rel between user and term
-// router.post(":uid/");
+router.put("/:uid/:/:termDefinition", addUserStudyingTerm);
 
 module.exports = router;
