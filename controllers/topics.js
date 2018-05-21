@@ -19,7 +19,7 @@ const driver = neo4j.driver(
 exports.getAllTopics = (req, res, next) => {
   const session = driver.session();
   const getAllTopicsPromise = session.run(
-    "MATCH (topic:Topic) RETURN topic AS AllTopics",
+    "MATCH (allTopics:Topic) RETURN DISTINCT allTopics",
     {}
   );
   getAllTopicsPromise
