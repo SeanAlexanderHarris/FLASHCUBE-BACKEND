@@ -20,10 +20,28 @@ const driver = neo4j.driver(
 exports.getAllTerms = (req, res, next) => {
   const session = driver.session();
   const getAllTermsPromise = session.run(
-    "MATCH (term:Term) RETURN term AS AllTerms",
+    "MATCH (allTerms:Term) RETURN allTerms",
     {}
   );
   getAllTermsPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};
+
+exports.getTermsByTopic = (req, res, next) => {
+  const session = driver.session();
+  const getTermsByTopicPromise = session.run(
+    "MATCH (term:Term)-[:BELONGS_TO]->(topic:Topic{title:$topicTitle}) RETURN allTerms",
+    {
+      topicTitle: req.params.topicTitle
+    }
+  );
+  getTermsByTopicPromise
     .then(result => {
       session.close();
       console.log(result);

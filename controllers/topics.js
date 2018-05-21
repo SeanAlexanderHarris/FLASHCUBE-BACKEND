@@ -52,13 +52,32 @@ exports.getTopic = (req, res, next) => {
 
 exports.getUserTopics = (req, res, next) => {
   const session = driver.session();
-  const getTopicPromise = session.run(
+  const getUserTopicsPromise = session.run(
     "MATCH (user:User{uid:$uid}-[:IS_STUDYING]->(topic:Topic) RETURN user, topic",
     {
       uid: req.params.uid
     }
   );
-  getTopicPromise
+  getUserTopicsPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};
+
+exports.addUserStudyingTopic = (req, res, next) => {
+  const session = driver.session();
+  const addUserStudyingTopicPromise = session.run(
+    "MERGE (user:User{uid:$uid}-[:IS_STUDYING{type:'isStudying'}]->(topic:Topic{title:$topicTitle}) RETURN user, topic",
+    {
+      uid: req.params.uid,
+      topicTitle: req.params.topicTitle
+    }
+  );
+  addUserStudyingTopicPromise
     .then(result => {
       session.close();
       console.log(result);
