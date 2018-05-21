@@ -4,7 +4,7 @@ const neo4j = require("neo4j-driver").v1;
 //   "bolt://localhost",
 //   neo4j.auth.basic("neo4j", "flashcube")
 // );
-// const { driver } = require("../app");
+const { driver } = require("../app");
 const {
   GRAPHENEDB_BOLT_PASSWORD,
   GRAPHENEDB_BOLT_URL,
@@ -12,16 +12,13 @@ const {
   GRAPHENEDB_URL
 } = process.env.GRAPHENEDB_URL ? process.env : require("./config/");
 
-const driver = neo4j.driver(
-  GRAPHENEDB_BOLT_URL,
-  neo4j.auth.basic(GRAPHENEDB_BOLT_USER, GRAPHENEDB_BOLT_PASSWORD)
-);
-
-const { session } = require("../app");
-// = driver.session();
+// const driver = neo4j.driver(
+//   GRAPHENEDB_BOLT_URL,
+//   neo4j.auth.basic(GRAPHENEDB_BOLT_USER, GRAPHENEDB_BOLT_PASSWORD)
+// );
 
 exports.getAllUsers = (req, res, next) => {
-  // const session = driver.session();
+  const session = driver.session();
   const getAllUsersPromise = session.run(
     "MATCH (user:User) RETURN user AS AllUsers",
     {}
