@@ -8,7 +8,7 @@ const session = driver.session();
 
 exports.getAllTopics = (req, res, next) => {
   const session = driver.session();
-  const getAllUsersPromise = session.run(
+  const getAllTopicsPromise = session.run(
     "MATCH (topic:Topic) RETURN topic AS AllTopics",
     {}
   );

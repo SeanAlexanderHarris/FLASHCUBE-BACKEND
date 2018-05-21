@@ -1,7 +1,7 @@
 {
   "name": "flashcube",
   "version": "1.0.0",
-  "description": "",
+  "description": "NorthCoders Project Phase - Sean, Romy, Dan, Nate",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,13 +10,11 @@
     "start": "node listen.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sean Harris",
   "license": "ISC",
   "dependencies": {
     "body-parser": "*",
-    "ejs": "*",
     "express": "*",
-    "morgan": "*",
     "neo4j-driver": "*",
     "nodemon": "*",
     "npm": "^6.0.1"

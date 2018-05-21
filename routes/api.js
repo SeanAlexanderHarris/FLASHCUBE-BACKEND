@@ -19,15 +19,14 @@ console.log("4");
 
 // on /api render a basic html menu of the routes as help for the squad
 router.get("/", (req, res) => {
-  // res.sendFile(__dirname.replace("routes", "") + "index.html");
-  res.send("It works?");
+  res.sendFile(__dirname.replace("routes", "") + "index.html");
 });
 
-// router.use("/users", usersRouter);
+router.use("/users", usersRouter);
 
-// router.use("/topics", topicsRouter);
+router.use("/topics", topicsRouter);
 
-// router.use("/terms", termsRouter);
+router.use("/terms", termsRouter);
 
 router.use("/*", (req, res, next) => {
   next({ status: 404 });

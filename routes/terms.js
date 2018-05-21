@@ -1,8 +1,9 @@
 const router = require("express").Router();
 
-// require in controllers from controllers folder
+const { getAllTerms } = require("../controllers/terms");
 
 // get all terms
+router.get("/", getAllTerms);
 
 // get one term
 
