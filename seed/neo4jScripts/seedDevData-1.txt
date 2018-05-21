@@ -9,12 +9,14 @@ CREATE (Frogs:Topic{title:'Frogs', language:'English'})
 CREATE (StrangerThings:Topic{title:'Stranger Things', language:'English'})
 CREATE (BuffyTheVampireSlayerCharacters:Topic{title:'Buffy The Vampire Slayer Characters', language:'English'})
 CREATE 
-    (BuffyTheVampireSlayerCharacters)-[:CREATED_BY]->(Seano),
-    (MadeInChelsea)-[:CREATED_BY]->(RomeDog),
-    (BakeOff)-[:CREATED_BY]->(RomeDog),
-    (Dexter)-[:CREATED_BY]->(RomeDog),
-    (Frogs)-[:CREATED_BY]->(RomeDog),
-    (StrangerThings)-[:CREATED_BY]->(RomeDog)
+    (BuffyTheVampireSlayerCharacters)-[:CREATED_BY{type:'made'}]->(Seano),
+    (MadeInChelsea)-[:CREATED_BY{type:'made'}]->(RomeDog),
+    (BakeOff)-[:CREATED_BY{type:'made'}]->(RomeDog),
+    (Dexter)-[:CREATED_BY{type:'made'}]->(RomeDog),
+    (Frogs)-[:CREATED_BY{type:'made'}]->(DanSoup),
+    (StrangerThings)-[:CREATED_BY{type:'made'}]->(RomeDog),
+    (DanSoup)-[:IS_STUDYING{type:'isStudying'}]->(BuffyTheVampireSlayerCharacters),
+    (DanSoup)-[:IS_STUDYING{type:'isStudying'}]->(StrangerThings)
 
 CREATE (Binky:Term{term:'Who left the show to have a baby?', 
     definition:'Binky', 
