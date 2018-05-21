@@ -14,9 +14,9 @@ router.get("/", getAllTopics);
 router.get("/:title", getTopic);
 
 // get topics a user is studying
-router.get(":uid/topics", getUserTopics);
+router.get("/:uid/topics", getUserTopics);
 
 // add an IS_STUDYING relationship between user and topic
-router.post(":uid/:topicTitle", addUserStudyingTopic);
+router.post("/:uid/:topicTitle", addUserStudyingTopic);
 
 module.exports = router;
