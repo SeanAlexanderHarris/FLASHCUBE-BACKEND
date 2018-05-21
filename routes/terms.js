@@ -7,6 +7,8 @@ router.get("/", getAllTerms);
 
 // get one term
 
-// get terms a user is stuyding
+// get terms a user is studying
+
+// add an IS_STUDYING rel between user and term
 
 module.exports = router;

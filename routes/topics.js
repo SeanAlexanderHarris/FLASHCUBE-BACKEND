@@ -8,6 +8,8 @@ router.get("/", getAllTopics);
 // get one topic
 router.get("/:title", getTopic);
 
-// get topics a user is stuyding
+// get topics a user is studying
+
+// add an IS_STUDYING rel between user and topic
 
 module.exports = router;

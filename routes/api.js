@@ -3,21 +3,7 @@ const topicsRouter = require("./topics");
 const termsRouter = require("./terms");
 const usersRouter = require("./users");
 
-console.log("api hit");
-
-// router.get("/", function(req, res) {
-//   session
-//     .run("MATCH(n) RETURN n LIMIT 1")
-//     .then(result => {
-//       session.close();
-//       console.log(result);
-//       res.send({ result });
-//       driver.close();
-//     })
-//     .catch(err => console.log);
-// });
-
-// on /api render a basic html menu of the routes as help for the squad
+// on /api render a basic html menu of the routes & endpoints
 router.get("/", (req, res) => {
   res.sendFile(__dirname.replace("routes", "") + "index.html");
 });
