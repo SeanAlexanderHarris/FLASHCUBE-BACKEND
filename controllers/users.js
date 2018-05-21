@@ -37,7 +37,7 @@ exports.getUser = (req, res, next) => {
   const getUserPromise = session.run(
     "MATCH (user:User{uid:$uid}) MATCH(topic:Topic) RETURN user, topic",
     {
-      uid: req.params.id
+      uid: req.params.uid
     }
   );
   getUserPromise

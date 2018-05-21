@@ -1,6 +1,6 @@
 CREATE (Seano:User{name:'Seano', profile:'a url'})
 CREATE (RomeDog:User{name:'RomeDog', profile:'a url'})
-CREATE (DanSoup:User{name:'DanSoup', profile:'a url'})
+CREATE (DanSoup:User{name:'DanSoup', profile:'a url', uid:'FP9AzXLPWfS9NjH6N7oy6osi9cn2'})
 CREATE (Nate:User{name:'Nathan Thomas', photoURL:'https://graph.facebook.com/10160537874150232/picture', uid:'wzlSZhc24TeyiD6j9voIBKy63Py1'})
 CREATE (MadeInChelsea:Topic{title:'Made in Chelsea', language:'English'})
 CREATE (BakeOff:Topic{title:'The Great British Bake Off', language:'English'})
