@@ -6,7 +6,8 @@ const {
   getUserTopics,
   addUserStudyingTopic,
   addUserFavouriteTopic,
-  delUserFavouriteTopic
+  delUserFavouriteTopic,
+  addTopic
 } = require("../controllers/topics");
 
 // get all topics
@@ -26,5 +27,8 @@ router.put("/fave/:uid/:topicTitle", addUserFavouriteTopic);
 
 // remove the "favourite" property from an :IS_STUDYING relationship
 router.delete("/fave/:uid/:topicTitle", delUserFavouriteTopic);
+
+// add a topic to the database
+router.post("/", addTopic);
 
 module.exports = router;

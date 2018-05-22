@@ -124,3 +124,23 @@ exports.delUserFavouriteTopic = (req, res, next) => {
     })
     .catch(next);
 };
+
+exports.addTopic = (req, res, next) => {
+  const session = driver.session();
+  const addTopicPromise = session.run(
+    "CREATE (topic:Topic{title:$title, language:$language, topicImageUrl:$topicImageUrl}) RETURN topic",
+    {
+      title: req.body.title,
+      language: req.body.language,
+      topicImageUrl: req.body.topicImageUrl
+    }
+  );
+  addTopicPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};

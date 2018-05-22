@@ -2,13 +2,13 @@ CREATE (Seano:User{name:'Seano', profile:'a url', uid:'P58Xzi5lfTYKhqeqKOrKGwOFK
 CREATE (RomeDog:User{name:'RomeDog', profile:'a url'})
 CREATE (DanSoup:User{name:'DanSoup', profile:'a url', uid:'FP9AzXLPWfS9NjH6N7oy6osi9cn2'})
 CREATE (Nate:User{name:'Nathan Thomas', photoURL:'https://graph.facebook.com/10160537874150232/picture', uid:'wzlSZhc24TeyiD6j9voIBKy63Py1'})
-CREATE (MadeInChelsea:Topic{title:'Made in Chelsea', language:'English'})
-CREATE (BakeOff:Topic{title:'The Great British Bake Off', language:'English'})
-CREATE (Dexter:Topic{title:'Dexter', language:'English'})
-CREATE (Frogs:Topic{title:'Frogs', language:'English'})
-CREATE (NewcastleUtd:Topic{title:'Newcastle United', language:'English'})
-CREATE (StrangerThings:Topic{title:'Stranger Things', language:'English'})
-CREATE (BuffyTheVampireSlayerCharacters:Topic{title:'Buffy The Vampire Slayer Characters', language:'English'})
+CREATE (MadeInChelsea:Topic{title:'Made in Chelsea', language:'English', topicImageUrl:'http://static.wixstatic.com/media/755880_ffd4af24a6ee421a833ef65068f66c98.gif'})
+CREATE (BakeOff:Topic{title:'The Great British Bake Off', language:'English', topicImageUrl:'https://i2-prod.mirror.co.uk/incoming/article7890095.ece/ALTERNATES/s615/The-Great-British-Bake-Off.jpg'})
+CREATE (Dexter:Topic{title:'Dexter', language:'English', topicImageUrl:'http://cdn-static.denofgeek.com/sites/denofgeek/files/styles/article_main_wide_image/public/images/11438.jpg?itok=mmgLdo0r'})
+CREATE (Frogs:Topic{title:'Frogs', language:'English', topicImageUrl:'https://pbs.twimg.com/profile_images/613118595933958144/Vap0trT7_400x400.jpg'})
+CREATE (NewcastleUtd:Topic{title:'Newcastle United', language:'English', topicImageUrl:'http://images-1.smartsave.com/images/attractions/1507/14742982175894.png'})
+CREATE (StrangerThings:Topic{title:'Stranger Things', language:'English', topicImageUrl:'https://at-cdn-s02.audiotool.com/2017/10/17/documents/stranger_things_kib_s_entry/7/cover256x256-ac0774653acf42d9b07ff2f86d547a07.jpg'})
+CREATE (BuffyTheVampireSlayerCharacters:Topic{title:'Buffy The Vampire Slayer Characters', language:'English', topicImageUrl:'https://images.recordsale.de/256/256/cdpix/v/various-buffy_the_vampire_slayer.jpg'})
 CREATE 
     (BuffyTheVampireSlayerCharacters)-[:CREATED_BY{type:'made'}]->(Seano),
     (MadeInChelsea)-[:CREATED_BY{type:'made'}]->(RomeDog),
@@ -318,5 +318,3 @@ CREATE
     (DanSoup)-[:IS_STUDYING]->(MindFlayer),
     (DanSoup)-[:IS_STUDYING]->(HawkinsIndiana),
     (DanSoup)-[:IS_STUDYING]->(BaseballBat)
-
-MATCH (topic:Topic)<-[:BELONGS_TO]-(term:Term) WITH topic, count(term) AS num_of_terms SET topic.num_of_terms = num_of_terms

@@ -105,3 +105,23 @@ exports.getOneTerm = (req, res, next) => {
     })
     .catch(next);
 };
+
+exports.addTerm = (req, res, next) => {
+  const session = driver.session();
+  const addTermPromise = session.run(
+    "MATCH (topic:Topic{title:$belongs_to}) CREATE (term:Term{term:$term, definition:$definition, belongs_to:$belongs_to})-[rel:BELONGS_TO]->(topic)",
+    {
+      term: req.body.term,
+      definition: req.body.definition,
+      belongs_to: req.body.belongs_to
+    }
+  );
+  addTermPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};

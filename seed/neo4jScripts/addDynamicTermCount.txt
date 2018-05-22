@@ -1,0 +1,1 @@
+MATCH (topic:Topic)<-[:BELONGS_TO]-(term:Term) WITH topic, count(term) AS num_of_terms SET topic.num_of_terms = num_of_terms

@@ -5,7 +5,8 @@ const {
   getTermsByTopic,
   getUserTerms,
   addUserStudyingTerm,
-  getOneTerm
+  getOneTerm,
+  addTerm
 } = require("../controllers/terms");
 
 // get all terms
@@ -22,5 +23,8 @@ router.get("/:topicTitle/topicterms", getTermsByTopic);
 
 // add an IS_STUDYING rel between user and term
 router.put("/:uid/:termDefinition", addUserStudyingTerm);
+
+// add a term to the database
+router.post("/", addTerm);
 
 module.exports = router;
