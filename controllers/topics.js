@@ -128,8 +128,9 @@ exports.delUserFavouriteTopic = (req, res, next) => {
 exports.addTopic = (req, res, next) => {
   const session = driver.session();
   const addTopicPromise = session.run(
-    "CREATE (topic:Topic{title:$title, language:$language, topicImageUrl:$topicImageUrl}) RETURN topic",
+    "MATCH (user:User{uid:$uid}) CREATE (topic:Topic{title:$title, language:$language, topicImageUrl:$topicImageUrl}), (topic)-[rel:CREATED_BY{type:'made'}]->(user)  RETURN topic, rel.type, user",
     {
+      uid: req.body.uid,
       title: req.body.title,
       language: req.body.language,
       topicImageUrl: req.body.topicImageUrl

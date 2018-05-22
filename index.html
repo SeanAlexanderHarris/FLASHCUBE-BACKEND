@@ -5086,7 +5086,7 @@
   <p>Returns all terms with an :IS_STUDYING relationship with a user</p>
   <h3>
     <a></a>PUT
-    <code>/api/terms//:uid/:termDefinition</code>
+    <code>/api/terms/:uid/:termDefinition</code>
   </h3>
   <p>Adds an IS_STUDYING relationship between a user and a term</p>
   <h3>
@@ -5104,6 +5104,19 @@
     <code>/api/topics/fave/:uid/:topicTitle</code>
   </h3>
   <p>Removes a "fave" property from an :IS_STUDYING relationship between a user and topic</p>
+  <h3>
+    <a></a>POST
+    <code>/api/terms/</code>
+  </h3>
+  <p>Adds a term to the database - must have a :BELONGS_TO property on the req body indicating which topic it should have that
+    relationship with, as well as both term and definition properties</p>
+  <h3>
+    <a></a>POST
+    <code>/api/topics/</code>
+  </h3>
+  <p>Adds a topic to the database - must have title, language, and topicImageUrl properties on the req body. The uid property
+    on the body should be set to that of the user who is currently logged in in order for the :CREATED_BY relationship to
+    be created in tandem with the topic.</p>
 </body>
 
 </html>
