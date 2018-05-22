@@ -318,3 +318,5 @@ CREATE
     (DanSoup)-[:IS_STUDYING]->(MindFlayer),
     (DanSoup)-[:IS_STUDYING]->(HawkinsIndiana),
     (DanSoup)-[:IS_STUDYING]->(BaseballBat)
+
+MATCH (topic:Topic)<-[:BELONGS_TO]-(term:Term) WITH topic, count(term) AS num_of_terms SET topic.num_of_terms = num_of_terms
