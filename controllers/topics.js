@@ -86,3 +86,41 @@ exports.addUserStudyingTopic = (req, res, next) => {
     })
     .catch(next);
 };
+
+exports.addUserFavouriteTopic = (req, res, next) => {
+  const session = driver.session();
+  const addUserFavouriteTopicPromise = session.run(
+    "MATCH (user:User{uid:$uid})-[rel:IS_STUDYING]->(topic:Topic{title:$topicTitle}) SET rel.fave = true RETURN user, rel.fave, topic",
+    {
+      uid: req.params.uid,
+      topicTitle: req.params.topicTitle
+    }
+  );
+  addUserFavouriteTopicPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};
+
+exports.delUserFavouriteTopic = (req, res, next) => {
+  const session = driver.session();
+  const delUserFavouriteTopicPromise = session.run(
+    "MATCH (user:User{uid:$uid})-[rel:IS_STUDYING] (topic:Topic{title:$topicTitle}) REMOVE rel.fave RETURN user, rel.fave, topic",
+    {
+      uid: req.params.uid,
+      topicTitle: req.params.topicTitle
+    }
+  );
+  delUserFavouriteTopicPromise
+    .then(result => {
+      session.close();
+      console.log(result);
+      res.send({ result });
+      driver.close();
+    })
+    .catch(next);
+};
