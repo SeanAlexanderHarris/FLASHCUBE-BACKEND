@@ -1,9 +1,6 @@
 const express = require("express");
 const neo4j = require("neo4j-driver").v1;
-// const driver = neo4j.driver(
-//   "bolt://localhost",
-//   neo4j.auth.basic("neo4j", "flashcube")
-// );
+
 const {
   GRAPHENEDB_BOLT_PASSWORD,
   GRAPHENEDB_BOLT_URL,
@@ -26,7 +23,7 @@ exports.getAllUsers = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(200).send({ result });
       driver.close();
     })
     .catch(next);
@@ -44,7 +41,7 @@ exports.getUser = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(200).send({ result });
       driver.close();
     })
     .catch(next);
@@ -64,7 +61,7 @@ exports.addUser = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(201).send({ result, msg: "user added" });
       driver.close();
     })
     .catch(next);

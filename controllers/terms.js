@@ -1,9 +1,5 @@
 const express = require("express");
 const neo4j = require("neo4j-driver").v1;
-// const driver = neo4j.driver(
-//   "bolt://localhost",
-//   neo4j.auth.basic("neo4j", "flashcube")
-// );
 
 const {
   GRAPHENEDB_BOLT_PASSWORD,
@@ -27,7 +23,7 @@ exports.getAllTerms = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(200).send({ result });
       driver.close();
     })
     .catch(next);
@@ -45,7 +41,7 @@ exports.getTermsByTopic = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(200).send({ result });
       driver.close();
     })
     .catch(next);
@@ -63,7 +59,7 @@ exports.getUserTerms = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(200).send({ result });
       driver.close();
     })
     .catch(next);
@@ -82,7 +78,7 @@ exports.addUserStudyingTerm = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(200).send({ result });
       driver.close();
     })
     .catch(next);
@@ -100,7 +96,7 @@ exports.getOneTerm = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(200).send({ result });
       driver.close();
     })
     .catch(next);
@@ -120,7 +116,9 @@ exports.addTerm = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res
+        .status(201)
+        .send({ result, msg: "201: term added to specified topic" });
       driver.close();
     })
     .catch(next);

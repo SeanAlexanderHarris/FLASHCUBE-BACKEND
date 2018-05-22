@@ -1,9 +1,6 @@
 const express = require("express");
 const neo4j = require("neo4j-driver").v1;
-// const driver = neo4j.driver(
-//   "bolt://localhost",
-//   neo4j.auth.basic("neo4j", "flashcube")
-// );
+
 const {
   GRAPHENEDB_BOLT_PASSWORD,
   GRAPHENEDB_BOLT_URL,
@@ -26,7 +23,7 @@ exports.getAllTopics = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(200).send({ result });
       driver.close();
     })
     .catch(next);
@@ -44,7 +41,7 @@ exports.getTopic = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(200).send({ result });
       driver.close();
     })
     .catch(next);
@@ -62,7 +59,7 @@ exports.getUserTopics = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(200).send({ result });
       driver.close();
     })
     .catch(next);
@@ -81,7 +78,13 @@ exports.addUserStudyingTopic = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res
+        .status(201)
+        .send({
+          result,
+          msg:
+            "201: IS_STUDYING relationship added between specified user and topic"
+        });
       driver.close();
     })
     .catch(next);
@@ -100,7 +103,13 @@ exports.addUserFavouriteTopic = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res
+        .status(201)
+        .send({
+          result,
+          msg:
+            "201: fave=true property added to IS_STUDYING relationship between specified user and topic"
+        });
       driver.close();
     })
     .catch(next);
@@ -119,7 +128,11 @@ exports.delUserFavouriteTopic = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(204).send({
+        result,
+        msg:
+          "204: fave=true property deleted from IS_STUDYING relationship between specified user and topic"
+      });
       driver.close();
     })
     .catch(next);
@@ -140,7 +153,11 @@ exports.addTopic = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res.send({ result });
+      res.status(201).send({
+        result,
+        msg:
+          "201: topic added with CREATED_BY relationship between user and topic"
+      });
       driver.close();
     })
     .catch(next);
