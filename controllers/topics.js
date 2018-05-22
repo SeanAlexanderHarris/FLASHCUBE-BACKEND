@@ -109,7 +109,7 @@ exports.addUserFavouriteTopic = (req, res, next) => {
 exports.delUserFavouriteTopic = (req, res, next) => {
   const session = driver.session();
   const delUserFavouriteTopicPromise = session.run(
-    "MATCH (user:User{uid:$uid})-[rel:IS_STUDYING] (topic:Topic{title:$topicTitle}) REMOVE rel.fave RETURN user, rel.fave, topic",
+    "MATCH (user:User{uid:$uid})-[rel:IS_STUDYING]->(topic:Topic{title:$topicTitle}) REMOVE rel.fave RETURN user, rel.fave, topic",
     {
       uid: req.params.uid,
       topicTitle: req.params.topicTitle
