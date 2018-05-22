@@ -21,6 +21,6 @@ router.get("/:uid/terms", getUserTerms);
 router.get("/:topicTitle/topicterms", getTermsByTopic);
 
 // add an IS_STUDYING rel between user and term
-router.put("/:uid/:/:termDefinition", addUserStudyingTerm);
+router.put("/:uid/:termDefinition", addUserStudyingTerm);
 
 module.exports = router;

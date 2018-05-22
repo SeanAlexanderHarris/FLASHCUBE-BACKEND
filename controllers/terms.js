@@ -72,7 +72,7 @@ exports.getUserTerms = (req, res, next) => {
 exports.addUserStudyingTerm = (req, res, next) => {
   const session = driver.session();
   const addUserStudyingTermPromise = session.run(
-    "MERGE (user:User{uid:$uid}-[rel:IS_STUDYING{type:'isStudying'}]->(term:Term{definition:$termDefinition}) RETURN user, rel, term",
+    "MATCH (user:User{uid:$uid}), (term:Term{definition:$termDefinition}) CREATE (user)-[rel:IS_STUDYING]->(term) RETURN user, rel, term",
     {
       uid: req.params.uid,
       termDefinition: req.params.termDefinition

@@ -71,7 +71,7 @@ exports.getUserTopics = (req, res, next) => {
 exports.addUserStudyingTopic = (req, res, next) => {
   const session = driver.session();
   const addUserStudyingTopicPromise = session.run(
-    "MERGE (user:User{uid:$uid}-[rel:IS_STUDYING{type:'isStudying'}]->(topic:Topic{title:$topicTitle}) RETURN user, rel, topic",
+    "MATCH (user:User{uid:$uid}), (topic:Topic{title:$topicTitle}) CREATE (user)-[rel:IS_STUDYING]->(topic) RETURN user, rel, topic",
     {
       uid: req.params.uid,
       topicTitle: req.params.topicTitle
