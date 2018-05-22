@@ -4,7 +4,7 @@
   "description": "NorthCoders Project Phase - Sean, Romy, Dan, Nate",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha spec",
     "dev": "nodemon listen.js",
     "seed:dev": "node seed/seed.js",
     "start": "node listen.js"
@@ -19,5 +19,10 @@
     "neo4j-driver": "*",
     "nodemon": "*",
     "npm": "^6.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
   }
 }
