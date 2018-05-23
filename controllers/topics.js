@@ -50,7 +50,7 @@ exports.getTopic = (req, res, next) => {
 exports.getUserTopics = (req, res, next) => {
   const session = driver.session();
   const getUserTopicsPromise = session.run(
-    "MATCH (user:User{uid:$uid}-[:IS_STUDYING]->(topic:Topic) RETURN user, topic",
+    "MATCH (user:User{uid:$uid})-[:IS_STUDYING]->(topic:Topic) RETURN user, topic",
     {
       uid: req.params.uid
     }
