@@ -6,7 +6,7 @@ const {
   GRAPHENEDB_BOLT_URL,
   GRAPHENEDB_BOLT_USER,
   GRAPHENEDB_URL
-} = process.env.GRAPHENEDB_URL ? process.env : require("./config/");
+} = process.env.GRAPHENEDB_URL ? process.env : require("../config/");
 
 const driver = neo4j.driver(
   GRAPHENEDB_BOLT_URL,
@@ -78,13 +78,11 @@ exports.addUserStudyingTopic = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res
-        .status(201)
-        .send({
-          result,
-          msg:
-            "201: IS_STUDYING relationship added between specified user and topic"
-        });
+      res.status(201).send({
+        result,
+        msg:
+          "201: IS_STUDYING relationship added between specified user and topic"
+      });
       driver.close();
     })
     .catch(next);
@@ -103,13 +101,11 @@ exports.addUserFavouriteTopic = (req, res, next) => {
     .then(result => {
       session.close();
       console.log(result);
-      res
-        .status(201)
-        .send({
-          result,
-          msg:
-            "201: fave=true property added to IS_STUDYING relationship between specified user and topic"
-        });
+      res.status(201).send({
+        result,
+        msg:
+          "201: fave=true property added to IS_STUDYING relationship between specified user and topic"
+      });
       driver.close();
     })
     .catch(next);

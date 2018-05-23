@@ -1,12 +1,11 @@
 const neo4j = require("neo4j-driver").v1;
 const delData = require("../seed/deleteTestDataString");
-// const seedData = require("./seedDevDataString");
 const updatedSeedString = require("./seedStringInProgress");
 const {
   GRAPHENEDB_BOLT_PASSWORD,
   GRAPHENEDB_BOLT_URL,
   GRAPHENEDB_BOLT_USER
-} = require("../config/index");
+} = require("../config");
 
 const dropDriver = neo4j.driver(
   GRAPHENEDB_BOLT_URL,
@@ -16,7 +15,7 @@ const dropDriver = neo4j.driver(
 function dropDB() {
   const session = dropDriver.session();
   const dropDBPromise = session.run(delData, {});
-  dropDBPromise
+  return dropDBPromise
     .then(blankDB => {
       session.close();
       dropDriver.close();
@@ -34,7 +33,7 @@ const seedDriver = neo4j.driver(
 function seedDB() {
   const session = seedDriver.session();
   const seedPromise = session.run(updatedSeedString, {});
-  seedPromise
+  return seedPromise
     .then(result => {
       session.close();
       seedDriver.close();

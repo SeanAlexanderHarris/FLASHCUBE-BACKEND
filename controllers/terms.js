@@ -6,7 +6,7 @@ const {
   GRAPHENEDB_BOLT_URL,
   GRAPHENEDB_BOLT_USER,
   GRAPHENEDB_URL
-} = process.env.GRAPHENEDB_URL ? process.env : require("./config/");
+} = process.env.GRAPHENEDB_URL ? process.env : require("../config/");
 
 const driver = neo4j.driver(
   GRAPHENEDB_BOLT_URL,
