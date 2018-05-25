@@ -1,0 +1,41 @@
+MATCH(dan:User{name:"DanSoup"}) CREATE(NCStaff:Topic{title:"NC Staff", language:"English", topicImageUrl:"https://cdn-images-1.medium.com/max/1200/1*LdnSztHVYhhd8K8EqlgCJQ.png"})<-[:CREATED_BY{type:"made"}]-(dan)
+
+CREATE (James:Term{img:"http://info.northcoders.com/hubfs/Photos/Staff%20Photos/james.png", definition:"James - Co-Founder", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Chris:Term{img:"http://info.northcoders.com/hubfs/Photos/Staff%20Photos/chris_Sqaure.jpg", definition:"Chris - Co-Founder", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Louise:Term{img:"https://res.cloudinary.com/http-northcoders-com/image/upload/v1515673213/Lou_Sqaure_1_ibfvpr.jpg", definition:"Louise - Onboarding Mentor", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Amul:Term{img:"https://cdn2.hubspot.net/hubfs/3489321/Photos/Staff%20Photos/Amul_Square.jpg", definition:"Amul - Head of Talent & Partnerships", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Ruth:Term{img:"http://info.northcoders.com/hubfs/Photos/Staff%20Photos/Ruth_Sqaure.jpg", definition:"Ruth - Head of Growth", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Sam:Term{img:"http://info.northcoders.com/hubfs/Photos/Staff%20Photos/SamC__Sqaure.jpg", definition:"Sam - Head of Classroom", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Lisa:Term{img:"http://info.northcoders.com/hubfs/Photos/Staff%20Photos/Lisa_Sqaure.jpg", definition:"Lisa - Finance Director", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Johnny:Term{img:"https://cdn2.hubspot.net/hubfs/3489321/Photos/Staff%20Photos/JD_Sqaure.jpg", definition:"Johnny - Tutor", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (JohnnyUnknown:Term{img:"https://cdn2.hubspot.net/hubfs/3489321/Photos/Staff%20Photos/Jonny_Sqaure.jpg", definition:"Jonny - Unknown", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Mitch:Term{img:"https://cdn2.hubspot.net/hubfs/3489321/Photos/Staff%20Photos/Mitch_Sqaure.jpg", definition:"Mitch - Meme", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Josh:Term{img:"https://cdn2.hubspot.net/hubfs/3489321/Photos/Staff%20Photos/Josh_Sqaure.jpg", definition:"Josh - Onboarding Mentor", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Harriet:Term{img:"https://cdn2.hubspot.net/hubfs/3489321/Photos/Staff%20Photos/NEW_Harriet_Sqaure.jpg", definition:"Harriet - Community Manager", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (PaulGod:Term{img:"https://res.cloudinary.com/http-northcoders-com/image/upload/v1519059480/Paul_Sqaure_cf5dtl.jpg", definition:"Paul - The Greatest Man in the World", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Anat:Term{img:"https://res.cloudinary.com/http-northcoders-com/image/upload/v1519059480/Anat_Sqaure_nezmtl.jpg", definition:"Anat - Tutor", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Jac:Term{img:"https://res.cloudinary.com/http-northcoders-com/image/upload/v1519059480/Jac_Sqaure_ojebi4.jpg", definition:"Jac - Tutor", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Paul:Term{img:"https://res.cloudinary.com/http-northcoders-com/image/upload/v1523630443/paul-sq_gnb8mf.jpg", definition:"Paul - Northcoder In Residence", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Steph:Term{img:"https://res.cloudinary.com/http-northcoders-com/image/upload/v1525190774/Steph_Sqaure_rlxgul.jpg", definition:"Steph - Talent & Partnerships Coordinator", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Alanna:Term{img:"https://res.cloudinary.com/http-northcoders-com/image/upload/v1525190779/Alanna_Sqaure_w5zbxm.jpg", definition:"Alanna - Designer", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Lucy:Term{img:"https://res.cloudinary.com/http-northcoders-com/image/upload/v1525190788/Lucy001_pzv5i8.jpg", definition:"Lucy - Growth Executive", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)
+
+CREATE (Ant:Term{img:"https://res.cloudinary.com/http-northcoders-com/image/upload/v1525190783/Ant_c8vgdx.jpg", definition:"Ant - Northcoder In Residence", belongs_to:"NC Staff"})-[:BELONGS_TO]->(NCStaff)

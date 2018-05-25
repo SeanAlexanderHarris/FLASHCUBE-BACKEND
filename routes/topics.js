@@ -18,7 +18,6 @@ router.get("/:title", getTopic);
 
 // get topics a user is studying - test check
 router.get("/:uid/topics", getUserTopics);
-// router.get("/usertopics/:uid", getUserTopics);
 
 // add an IS_STUDYING relationship between user and topic
 router.put("/:uid/:topicTitle", addUserStudyingTopic);

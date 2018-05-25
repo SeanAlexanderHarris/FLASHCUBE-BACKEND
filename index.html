@@ -5056,9 +5056,9 @@
   <p>Returns all topics</p>
   <h3>
     <a></a>GET
-    <code>/api/users</code>
+    <code>/api/terms</code>
   </h3>
-  <p>Returns all users</p>
+  <p>Returns all terms (flashcards)</p>
   <h3>
     <a></a>GET
     <code>/api/users/:uid</code>
@@ -5098,12 +5098,12 @@
     <a></a>PUT
     <code>/api/topics/fave/:uid/:topicTitle</code>
   </h3>
-  <p>Adds a "fave" property to an :IS_STUDYING relationship between a user and topic</p>
+  <p>Adds a "fave: true" property to an :IS_STUDYING relationship between a user and topic</p>
   <h3>
     <a></a>DELETE
     <code>/api/topics/fave/:uid/:topicTitle</code>
   </h3>
-  <p>Removes a "fave" property from an :IS_STUDYING relationship between a user and topic</p>
+  <p>Removes a "fave: true" property from an :IS_STUDYING relationship between a user and topic</p>
   <h3>
     <a></a>POST
     <code>/api/terms/</code>

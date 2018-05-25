@@ -107,18 +107,65 @@ describe("/api", () => {
         });
     });
 
-    // it("returns topics a user is studying", () => {
-    //   return request
-    //     .get(`/api/topics/usertopics/FP9AzXLPWfS9NjH6N7oy6osi9cn2`)
-    //     .expect("Content-Type", /json/)
-    //     .expect(200)
-    //     .then(res => {
-    //       const { result } = res.body;
-    //       expect(result.records[0]._fields[0].properties.topicImageUrl).to.be.a(
-    //         "string"
-    //       );
-    //       console.log(result);
-    //     });
-    // });
+    it("returns topics a user is studying", () => {
+      return request
+        .get(`/api/topics/P58Xzi5lfTYKhqeqKOrKGwOFKz43/topics`)
+        .expect("Content-Type", /json/)
+        .expect(200)
+        .then(res => {
+          const { result } = res.body;
+          expect(result.records[0]._fields[1].properties.topicImageUrl).to.be.a(
+            "string"
+          );
+          expect(result.records[0]._fields[1].properties.title).to.equal(
+            "Buffy The Vampire Slayer Characters"
+          );
+          expect(result.records[0]._fields[1].properties.language).to.equal(
+            "English"
+          );
+          console.log(result);
+        });
+    });
+  });
+
+  describe("/terms", () => {
+    it("returns all terms", () => {
+      return request
+        .get(`/api/terms/`)
+        .expect("Content-Type", /json/)
+        .expect(200)
+        .then(res => {
+          const { result } = res.body;
+          expect(result.records.length).to.equal(4);
+          expect(result.records[0]._fields[0].properties.term).to.be.a(
+            "string"
+          );
+          expect(result.records[0]._fields[0].properties.definition).to.be.a(
+            "string"
+          );
+          expect(result.records[0]._fields[0].properties.belongs_to).to.be.a(
+            "string"
+          );
+        });
+    });
+
+    it("returns a single user", () => {
+      return request
+        .get(`/api/terms/Buffy`)
+        .expect("Content-Type", /json/)
+        .expect(200)
+        .then(res => {
+          const { result } = res.body;
+          expect(result.records[0]._fields[0].properties.name).to.equal(
+            "DanSoup"
+          );
+          expect(result.records[0]._fields[0].properties.uid).to.equal(
+            "FP9AzXLPWfS9NjH6N7oy6osi9cn2"
+          );
+          expect(result.records[0]._fields[0].properties.profile).to.equal(
+            "a url"
+          );
+        });
+    });
   });
 });
